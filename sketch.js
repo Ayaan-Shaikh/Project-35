@@ -1,30 +1,25 @@
 var  dog,dogImg,happyDog;
-var  database;
+var  database,Food;
 var  foodS;
-var Food;
-
-
-
 function preload()
 {
-  database=firebase.database();
 dogImg=loadImage("dogImg.png")
 happyDog=loadImage("dogImg1.png");
 }
 
-
-
 function setup() {
-  
+  database=firebase.database();
 	createCanvas(500, 500);
  
   dog=createSprite(200,320,20,20);
   dog.addImage(dogImg, "dogImg.png");
   dog.scale=0.5
 
- foodS=database.ref('Food');
- foodS.on("value",readStock);
-   
+//  Food=database.ref('Food');
+//  Food.on("value",readStock);
+
+ foodS=database.ref('Food')
+ foodS.on("value",readStock)  
 
 }
 
